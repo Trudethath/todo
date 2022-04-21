@@ -6,10 +6,12 @@ import Content from './Content'
 function App() {
   return (
     <div className="wrapper">
-      <nav>
+      <aside>
         <Menu />
-      </nav>
-      <section>{/* <Content /> */}</section>
+      </aside>
+      <section>
+        <Content />
+      </section>
     </div>
   )
 }
