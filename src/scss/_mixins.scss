@@ -1,0 +1,15 @@
+@mixin navButton() {
+  &:hover {
+    background-color: white;
+    font-size: 1.4em;
+
+    & > .icon {
+      transition-duration: $transition-quick;
+      transform: rotate(-20deg);
+      margin-right: 30px;
+    }
+  }
+  &:active {
+    color: red;
+  }
+}

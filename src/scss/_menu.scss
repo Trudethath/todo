@@ -1,0 +1,51 @@
+.userWrapper {
+  padding: 10px;
+  background-color: $dark-blue;
+  color: $white;
+  div {
+    display: flex;
+    flex-direction: row;
+
+    img {
+      width: 30%;
+      border: 3px solid $white;
+      border-radius: 50%;
+    }
+  }
+}
+
+nav {
+  height: 100%;
+  ul {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    li {
+      height: 70px;
+      a {
+        display: inline-block;
+        padding: 10px;
+        width: 100%;
+        height: 100%;
+        transition-duration: $transition-quick;
+        @include navButton();
+        span {
+          &.icon {
+            display: inline-block;
+            transform: none;
+            font-size: 30px;
+            margin-right: 12px;
+          }
+        }
+      }
+
+      &.end {
+        margin-top: auto;
+        background-color: $dark-blue;
+        a {
+          color: white;
+        }
+      }
+    }
+  }
+}
