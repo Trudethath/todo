@@ -1,4 +1,5 @@
 .userWrapper {
+  min-height: 120px;
   padding: 10px;
   background-color: $dark-blue;
   color: $white;
@@ -7,7 +8,7 @@
     flex-direction: row;
 
     img {
-      width: 30%;
+      width: 100px;
       border: 3px solid $white;
       border-radius: 50%;
     }
@@ -16,6 +17,7 @@
 
 nav {
   height: 100%;
+  overflow: auto;
   ul {
     display: flex;
     flex-direction: column;
@@ -43,6 +45,7 @@ nav {
         margin-top: auto;
         background-color: $dark-blue;
         a {
+          // @include navButton();
           color: white;
         }
       }

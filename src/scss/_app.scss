@@ -115,6 +115,14 @@ a {
 
 //end of reset
 
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 25px;
+}
+
 html {
   font-family: $font-family;
 }
@@ -133,6 +141,7 @@ body {
 }
 
 .wrapper {
+  display: flex;
   background-color: rgba(255, 255, 255, 0.5);
   width: 90vw;
   height: 90vh;
@@ -147,5 +156,8 @@ aside {
   flex-direction: column;
   width: 20%;
   height: 100%;
-  overflow: auto;
+}
+
+.content {
+  width: 80%;
 }

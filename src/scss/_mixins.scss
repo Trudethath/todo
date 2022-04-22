@@ -10,6 +10,10 @@
     }
   }
   &:active {
-    color: red;
+    & > .icon {
+      transition-duration: $transition-quick;
+      transform: rotate(0);
+      margin-right: 20px;
+    }
   }
 }
