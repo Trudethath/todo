@@ -2,6 +2,7 @@
   &:hover {
     background-color: white;
     font-size: 1.4em;
+    color: black;
 
     & > .icon {
       transition-duration: $transition-quick;

@@ -8,3 +8,17 @@
     align-self: flex-end;
   }
 }
+
+.tasksWrapper {
+  padding: 10px;
+  height: 80%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 320px);
+  grid-column-gap: 20px;
+  grid-row-gap: 15px;
+  overflow: auto;
+}
+
+.center {
+  justify-content: center;
+}

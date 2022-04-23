@@ -54,6 +54,7 @@ nav ul li a {
 nav ul li a:hover {
   background-color: white;
   font-size: 1.4em;
+  color: black;
 }
 
 nav ul li a:hover > .icon {
@@ -87,6 +88,28 @@ nav ul li.end {
 
 nav ul li.end a {
   color: white;
+}
+
+nav ul li.end a:hover {
+  background-color: white;
+  font-size: 1.4em;
+  color: black;
+}
+
+nav ul li.end a:hover > .icon {
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+  -webkit-transform: rotate(-20deg);
+          transform: rotate(-20deg);
+  margin-right: 30px;
+}
+
+nav ul li.end a:active > .icon {
+  -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+  margin-right: 20px;
 }
 
 *,
@@ -223,6 +246,7 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: relative;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -231,25 +255,25 @@ body {
           align-items: center;
   width: 100vw;
   height: 100vh;
-  background-image: url("/src/images/5.jpg");
+  background: url("/src/images/5.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   background-position: top;
 }
 
-.wrapper {
+body .wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(0, 0, 0, 0.164);
   width: 90vw;
   height: 90vh;
   overflow: hidden;
   border-radius: 6px 30px 30px 6px;
 }
 
-aside {
+body aside {
   background-color: #e4e4e4;
   border-left: 6px solid #0d2d70;
   display: -webkit-box;
@@ -263,8 +287,22 @@ aside {
   height: 100%;
 }
 
-.content {
+body .content {
   width: 80%;
+  height: 100%;
+  position: relative;
+}
+
+body .content:before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  -webkit-box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.7);
+          box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.7);
 }
 
 .header {
@@ -280,5 +318,51 @@ aside {
 .header h1 {
   -ms-flex-item-align: end;
       align-self: flex-end;
+}
+
+.tasksWrapper {
+  padding: 10px;
+  height: 80%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (320px)[auto-fill];
+      grid-template-columns: repeat(auto-fill, 320px);
+  grid-column-gap: 20px;
+  grid-row-gap: 15px;
+  overflow: auto;
+}
+
+.center {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.task {
+  width: 100%;
+  height: 170px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  padding: 7px;
+  overflow: hidden;
+  position: relative;
+}
+
+.task h3 {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  text-align: center;
+}
+
+.task .h3-background {
+  position: absolute;
+  height: 30px;
+  left: 0;
+  top: 0;
+  width: 2000px;
+  background-color: white;
 }
 /*# sourceMappingURL=style.css.map */

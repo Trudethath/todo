@@ -1,10 +1,6 @@
-import React, { useContext } from 'react'
-import { AppContext } from './AppProvider'
+import React from 'react'
 
 function Layout(props) {
-  const { tasks } = useContext(AppContext)
-  console.log(tasks)
-
   return (
     <>
       <div className="header">

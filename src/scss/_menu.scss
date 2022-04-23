@@ -45,7 +45,7 @@ nav {
         margin-top: auto;
         background-color: $dark-blue;
         a {
-          // @include navButton();
+          @include navButton();
           color: white;
         }
       }
