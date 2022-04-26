@@ -4,10 +4,11 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 import TasksLayout from './layouts/TasksLayout'
 import HomeLayout from './layouts/HomeLayout'
 import CalendarLayout from './layouts/CalendarLayout'
+import AddTaskLayout from './layouts/AddTaskLayout'
 
 function Content() {
-  const todaysDate = new Date().toISOString().slice(0, 10)
   const { tasks } = useContext(AppContext)
+  const todaysDate = new Date().toISOString().slice(0, 10)
 
   const importantTasks = tasks.filter(
     (task) => task.important === true && task.active === true,
@@ -46,7 +47,11 @@ function Content() {
         path="/completed"
         element={<TasksLayout title="Completed" tasks={completedTasks} />}
       />
-      <Route exact path="/addTask" element={<HomeLayout title="addTask" />} />
+      <Route
+        exact
+        path="/addTask"
+        element={<AddTaskLayout title="Add task" />}
+      />
     </Routes>
   )
 }

@@ -330,6 +330,14 @@ body .content:before {
   grid-column-gap: 20px;
   grid-row-gap: 15px;
   overflow: auto;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.fill {
+  width: 100%;
+  height: 100%;
+  background-color: #e4e4e4;
 }
 
 .center {

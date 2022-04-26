@@ -8,7 +8,7 @@ const AppProvider = ({ children }) => {
       id: 0,
       title: 'zadanie1',
       description: 'asd',
-      date: '2022-04-25',
+      date: '2022-04-26',
       active: true,
       important: true,
       finishDate: null,
@@ -41,7 +41,24 @@ const AppProvider = ({ children }) => {
       finishDate: '2022-02-14',
     },
   ])
-  return <AppContext.Provider value={{ tasks }}>{children}</AppContext.Provider>
+
+  const addTask = (title, description, date, important) => {
+    const task = {
+      id: tasks.length,
+      title,
+      description,
+      date,
+      active: true,
+      important,
+      finishDate: null,
+    }
+    setTasks([...tasks, task])
+  }
+  return (
+    <AppContext.Provider value={{ tasks, addTask }}>
+      {children}
+    </AppContext.Provider>
+  )
 }
 
 export default AppProvider
