@@ -23,6 +23,30 @@
   transition: all 0.5s;
 }
 
+.calendarWrapper {
+  width: 100%;
+  height: 100%;
+  background-color: $white;
+  overflow: auto;
+  .calendarTable {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 4px;
+    .calendarTile {
+      width: 100%;
+      height: 70px;
+      border: 1px solid black;
+      border-radius: 15px;
+      min-width: 40px;
+    }
+  }
+
+  .day-name-row {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+  }
+}
+
 .fill {
   width: 100%;
   height: 100%;
