@@ -320,6 +320,55 @@ body .content:before {
       align-self: flex-end;
 }
 
+.header button {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  color: rgba(0, 0, 0, 0.7);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 75px;
+  height: 25px;
+  margin: 0 15px;
+  background: none;
+  border: none;
+  font-size: 15px;
+  overflow: hidden;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.header button span {
+  line-height: 25px;
+  margin: 0 2px;
+}
+
+.header button .buttonIcon {
+  line-height: 25px;
+  display: inline-block;
+  height: 30px;
+}
+
+.header button:hover {
+  font-size: 1.1em;
+  color: black;
+}
+
+.header button:active {
+  font-size: 1em;
+}
+
+.monthChange button {
+  border: none;
+}
+
+.monthChange button .smallButtonIcon {
+  font-size: 20px;
+}
+
 .tasksWrapper {
   padding: 10px;
   height: 80%;
@@ -334,36 +383,6 @@ body .content:before {
   transition: all 0.5s;
 }
 
-.calendarWrapper {
-  width: 100%;
-  height: 100%;
-  background-color: #e4e4e4;
-  overflow: auto;
-}
-
-.calendarWrapper .calendarTable {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[7];
-      grid-template-columns: repeat(7, 1fr);
-  grid-gap: 4px;
-}
-
-.calendarWrapper .calendarTable .calendarTile {
-  width: 100%;
-  height: 70px;
-  border: 1px solid black;
-  border-radius: 15px;
-  min-width: 40px;
-}
-
-.calendarWrapper .day-name-row {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[7];
-      grid-template-columns: repeat(7, 1fr);
-}
-
 .fill {
   width: 100%;
   height: 100%;
@@ -374,6 +393,56 @@ body .content:before {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.calendarWrapper {
+  width: 80%;
+  height: 95%;
+  margin: auto;
+  overflow: auto;
+}
+
+.calendarWrapper ol {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[7];
+      grid-template-columns: repeat(7, 1fr);
+  grid-gap: 1px;
+  background-color: black;
+  border: 1px solid black;
+}
+
+.calendarWrapper ol .day-name {
+  background-color: #0d2d70;
+  text-align: center;
+  font-size: 27px;
+  color: #e4e4e4;
+}
+
+.calendarWrapper ol .calendarTile {
+  background-color: #e4e4e4;
+  width: 100%;
+  padding: 6px;
+  height: 110px;
+  min-width: 40px;
+}
+
+.calendarWrapper ol .calendarTile .dayNum {
+  background: #0d2d70;
+  display: block;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  font-weight: bold;
+  border-radius: 50%;
+  font-size: 15px;
+  color: #e4e4e4;
+}
+
+.calendarWrapper ol .calendarTile .tasks {
+  display: block;
+  margin-top: 5px;
 }
 
 .task {

@@ -17,7 +17,7 @@ function CalendarTile(props) {
     <li className="calendarTile">
       <div>
         <span className="dayNum">{day}</span>
-        {tasksToday}
+        <span className="tasks">{tasksToday}</span>
       </div>
     </li>
   )
