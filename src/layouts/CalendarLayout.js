@@ -19,6 +19,8 @@ function Layout() {
     })
   })
 
+  console.table(daysMatrix)
+
   const Calendar = daysMatrix.map((dates) =>
     dates.map((date) => {
       return <CalendarTile key={date} date={date} />

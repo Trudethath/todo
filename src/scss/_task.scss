@@ -7,20 +7,50 @@
   overflow: hidden;
   position: relative;
 
-  h3 {
-    position: absolute;
-    top: 5px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
+  .taskHeader {
+    display: flex;
+    justify-content: center;
+    & .buttonsWrapper {
+      position: absolute;
+      font-size: 22px;
+      right: 0;
+      margin: -3px 15px;
+
+      & .taskButton {
+        border: 1px solid;
+        border-radius: 50%;
+        padding: 2px;
+        margin: 0 3px;
+      }
+    }
+    & .important {
+      position: absolute;
+      font-size: 1.3em;
+      left: 0;
+      margin-left: 10px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 30px;
+      z-index: -10;
+      top: 0;
+      left: 0;
+      background-color: white;
+    }
   }
 
-  .h3-background {
-    position: absolute;
-    height: 30px;
-    left: 0;
-    top: 0;
-    width: 2000px;
-    background-color: white;
+  .taskContent {
+    margin-top: 10px;
+  }
+
+  .golden {
+    color: goldenrod;
+  }
+
+  .danger {
+    color: red;
   }
 }

@@ -42,6 +42,21 @@ const AppProvider = ({ children }) => {
     },
   ])
 
+  const changeImportantStatus = (id) => {
+    console.log(id)
+    let tempTasks = [...tasks]
+    tempTasks.forEach((task) => {
+      if (task.id === id) {
+        task.important = !task.important
+      }
+    })
+    setTasks(tempTasks)
+  }
+
+  const removeTask = (id) => {
+    console.log('remove')
+  }
+
   const addTask = (title, description, date, important) => {
     const task = {
       id: tasks.length,
@@ -55,7 +70,9 @@ const AppProvider = ({ children }) => {
     setTasks([...tasks, task])
   }
   return (
-    <AppContext.Provider value={{ tasks, addTask }}>
+    <AppContext.Provider
+      value={{ tasks, addTask, changeImportantStatus, removeTask }}
+    >
       {children}
     </AppContext.Provider>
   )

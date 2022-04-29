@@ -49,23 +49,31 @@ function Layout(props) {
         <h1>{props.title}</h1>
       </div>
       <div className="fill">
-        <form>
-          <label htmlFor="title">Title</label>
-          <input
-            type="text"
-            id="title"
-            value={title}
-            placeholder="title"
-            onChange={handleInputs}
-          />
-          <label htmlFor="description">Description</label>
-          <input
-            type="text"
-            id="description"
-            value={description}
-            placeholder="description"
-            onChange={handleInputs}
-          />
+        <form className="addTask">
+          <div className="textInputs">
+            <div>
+              <label htmlFor="title">Title</label>
+              <input
+                type="text"
+                id="title"
+                value={title}
+                placeholder="title"
+                onChange={handleInputs}
+              />
+            </div>
+
+            <div>
+              <label htmlFor="description">Description</label>
+              <input
+                type="text"
+                id="description"
+                value={description}
+                placeholder="description"
+                onChange={handleInputs}
+              />
+            </div>
+          </div>
+
           <input
             type="date"
             id="date"
