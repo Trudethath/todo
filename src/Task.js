@@ -6,7 +6,9 @@ import { AiOutlineStar, AiFillStar } from 'react-icons/ai'
 
 function Task(props) {
   const { id, title, active, important, description } = props.task
-  const { changeImportantStatus, removeTask } = useContext(AppContext)
+  const { changeImportantStatus, removeTask, finishTask } = useContext(
+    AppContext,
+  )
   return (
     <div className="task">
       <div className="taskHeader">
@@ -23,7 +25,9 @@ function Task(props) {
         )}
         <h3>{title}</h3>
         <div className="buttonsWrapper">
-          {active ? <MdDone className="taskButton" /> : null}
+          {active ? (
+            <MdDone className="taskButton" onClick={() => finishTask(id)} />
+          ) : null}
 
           <IoMdRemove
             className="taskButton danger"

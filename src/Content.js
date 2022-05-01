@@ -18,6 +18,7 @@ function Content() {
   const todaysTasks = tasks.filter(
     (task) => task.date === todaysDate && task.active,
   )
+  const allTasks = tasks.filter((task) => task.active)
 
   return (
     <Routes>
@@ -35,7 +36,7 @@ function Content() {
       <Route
         exact
         path="/all"
-        element={<TasksLayout title="All" tasks={tasks} />}
+        element={<TasksLayout title="All" tasks={allTasks} />}
       />
       <Route
         exact

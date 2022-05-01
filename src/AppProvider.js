@@ -43,7 +43,6 @@ const AppProvider = ({ children }) => {
   ])
 
   const changeImportantStatus = (id) => {
-    console.log(id)
     let tempTasks = [...tasks]
     tempTasks.forEach((task) => {
       if (task.id === id) {
@@ -54,7 +53,22 @@ const AppProvider = ({ children }) => {
   }
 
   const removeTask = (id) => {
-    console.log('remove')
+    let tempTasks = [...tasks]
+    const index = tempTasks.findIndex((task) => task.id === id)
+    tempTasks.splice(index, 1)
+    setTasks(tempTasks)
+  }
+
+  const finishTask = (id) => {
+    let tempTasks = [...tasks]
+    const today = new Date()
+    tempTasks.forEach((task) => {
+      if (task.id === id) {
+        task.active = !task.active
+        task.date = today
+      }
+    })
+    setTasks(tempTasks)
   }
 
   const addTask = (title, description, date, important) => {
@@ -71,7 +85,7 @@ const AppProvider = ({ children }) => {
   }
   return (
     <AppContext.Provider
-      value={{ tasks, addTask, changeImportantStatus, removeTask }}
+      value={{ tasks, addTask, changeImportantStatus, removeTask, finishTask }}
     >
       {children}
     </AppContext.Provider>
