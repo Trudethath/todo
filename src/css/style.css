@@ -476,6 +476,27 @@ body .content:before {
   border-radius: 50%;
   padding: 2px;
   margin: 0 3px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.task .taskHeader .buttonsWrapper .taskButton[hoverColor='green']:hover {
+  padding: 3px;
+  background-color: #21c021;
+  color: white;
+  cursor: pointer;
+}
+
+.task .taskHeader .buttonsWrapper .taskButton[hoverColor='red']:hover {
+  padding: 3px;
+  background-color: #e40000;
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+
+.task .taskHeader .buttonsWrapper .taskButton:active {
+  font-size: 0.9em;
 }
 
 .task .taskHeader .important {
@@ -483,6 +504,17 @@ body .content:before {
   font-size: 1.3em;
   left: 0;
   margin-left: 10px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.task .taskHeader .important:hover {
+  color: rgba(218, 165, 32, 0.692);
+}
+
+.task .taskHeader .important:active {
+  color: #ffb700;
+  font-size: 1em;
 }
 
 .task .taskHeader::before {
@@ -505,6 +537,6 @@ body .content:before {
 }
 
 .task .danger {
-  color: red;
+  color: #e40000;
 }
 /*# sourceMappingURL=style.css.map */

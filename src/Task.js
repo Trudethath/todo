@@ -26,10 +26,15 @@ function Task(props) {
         <h3>{title}</h3>
         <div className="buttonsWrapper">
           {active ? (
-            <MdDone className="taskButton" onClick={() => finishTask(id)} />
+            <MdDone
+              hoverColor="green"
+              className="taskButton"
+              onClick={() => finishTask(id)}
+            />
           ) : null}
 
           <IoMdRemove
+            hoverColor="red"
             className="taskButton danger"
             onClick={() => removeTask(id)}
           />

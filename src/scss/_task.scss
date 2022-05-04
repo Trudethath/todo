@@ -21,6 +21,25 @@
         border-radius: 50%;
         padding: 2px;
         margin: 0 3px;
+        transition: $transition-quick;
+      }
+
+      & .taskButton[hoverColor='green']:hover {
+        padding: 3px;
+        background-color: $green;
+        color: white;
+        cursor: pointer;
+      }
+      & .taskButton[hoverColor='red']:hover {
+        padding: 3px;
+        background-color: $red;
+        color: white;
+        cursor: pointer;
+        border: none;
+      }
+
+      & .taskButton:active {
+        font-size: 0.9em;
       }
     }
     & .important {
@@ -28,6 +47,16 @@
       font-size: 1.3em;
       left: 0;
       margin-left: 10px;
+      transition: $transition-quick;
+    }
+
+    & .important:hover {
+      color: rgba(218, 165, 32, 0.692);
+    }
+
+    & .important:active {
+      color: rgb(255, 183, 0);
+      font-size: 1em;
     }
 
     &::before {
@@ -51,6 +80,6 @@
   }
 
   .danger {
-    color: red;
+    color: $red;
   }
 }
