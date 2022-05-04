@@ -10,6 +10,7 @@ function Layout() {
   const firstDayOfTheMonth = new Date(year, month, 0).getDay()
 
   let currentMonthCount = 1 - firstDayOfTheMonth
+  const currentMonthNumber = date.toLocaleString().slice(2, 4)
 
   // creates 2-dimensional array of whole month
   const daysMatrix = new Array(6).fill([]).map(() => {
@@ -21,7 +22,14 @@ function Layout() {
 
   const Calendar = daysMatrix.map((dates) =>
     dates.map((date) => {
-      return <CalendarTile key={date} date={date} />
+      const monthOfDate = date.slice(5, 7)
+      return (
+        <CalendarTile
+          disabled={monthOfDate !== currentMonthNumber && true}
+          key={date}
+          date={date}
+        />
+      )
     }),
   )
 
@@ -32,6 +40,8 @@ function Layout() {
   const changeMonth = (value) => {
     setDate(new Date(year, month + value))
   }
+
+  const currentMonthName = date.toLocaleString('default', { month: 'long' })
 
   return (
     <>
@@ -53,7 +63,7 @@ function Layout() {
             <button onClick={() => changeMonth(-1)}>
               <GoArrowSmallLeft className="smallButtonIcon" />
             </button>
-            {date.toLocaleString('default', { month: 'long' })}
+            <span className="monthName">{currentMonthName}</span>
             <button onClick={() => changeMonth(1)}>
               <GoArrowSmallRight className="smallButtonIcon" />
             </button>

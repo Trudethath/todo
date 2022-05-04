@@ -3,6 +3,17 @@
   height: 95%;
   margin: auto;
   overflow: auto;
+  & .monthChange {
+    text-align: center;
+    margin-bottom: 5px;
+
+    & .monthName {
+      display: inline-block;
+      width: 100px;
+      text-align: center;
+    }
+  }
+
   ol {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -39,6 +50,10 @@
         display: block;
         margin-top: 5px;
       }
+    }
+
+    & .calendarTile[disabled] {
+      opacity: 0.9;
     }
   }
 }

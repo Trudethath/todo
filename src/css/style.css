@@ -402,6 +402,17 @@ body .content:before {
   overflow: auto;
 }
 
+.calendarWrapper .monthChange {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.calendarWrapper .monthChange .monthName {
+  display: inline-block;
+  width: 100px;
+  text-align: center;
+}
+
 .calendarWrapper ol {
   display: -ms-grid;
   display: grid;
@@ -443,6 +454,10 @@ body .content:before {
 .calendarWrapper ol .calendarTile .tasks {
   display: block;
   margin-top: 5px;
+}
+
+.calendarWrapper ol .calendarTile[disabled] {
+  opacity: 0.9;
 }
 
 .task {
