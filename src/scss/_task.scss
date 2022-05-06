@@ -17,7 +17,7 @@
       margin: -3px 15px;
 
       & .taskButton {
-        border: 1px solid;
+        border: 1px solid rgba(0, 0, 0, 0.171);
         border-radius: 50%;
         padding: 2px;
         margin: 0 3px;
@@ -47,7 +47,7 @@
       font-size: 1.3em;
       left: 0;
       margin-left: 10px;
-      transition: $transition-quick;
+      transition: $transition-quick ease-in-out;
     }
 
     & .important:hover {
@@ -56,7 +56,6 @@
 
     & .important:active {
       color: rgb(255, 183, 0);
-      font-size: 1em;
     }
 
     &::before {

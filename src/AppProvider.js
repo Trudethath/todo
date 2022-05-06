@@ -40,6 +40,33 @@ const AppProvider = ({ children }) => {
       important: false,
       finishDate: '2022-02-14',
     },
+    {
+      id: 4,
+      title: 'zadanie5',
+      description: 'qqq',
+      date: '2022-05-06',
+      active: true,
+      important: false,
+      finishDate: '2022-02-14',
+    },
+    {
+      id: 5,
+      title: 'zadanie6',
+      description: 'qqq',
+      date: '2022-05-06',
+      active: true,
+      important: false,
+      finishDate: '2022-02-14',
+    },
+    {
+      id: 6,
+      title: 'zadanie6',
+      description: 'qqq',
+      date: '2022-05-06',
+      active: true,
+      important: false,
+      finishDate: '2022-02-14',
+    },
   ])
 
   const changeImportantStatus = (id) => {

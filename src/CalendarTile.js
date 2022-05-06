@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { AppContext } from './AppProvider'
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function CalendarTile(props) {
   const { date, disabled } = props
@@ -12,8 +12,15 @@ function CalendarTile(props) {
   })
 
   const tasksToday = filterTasks.map((task) => {
-    return <span key={task.id}>{task.title}</span>
+    return <p key={task.id}> - {task.title}</p>
   })
+
+  const firstTasks = (
+    <>
+      {tasksToday[0]}
+      <p>...</p>
+    </>
+  )
 
   return (
     <>
@@ -21,7 +28,9 @@ function CalendarTile(props) {
         <li className="calendarTile" disabled={disabled && 'disabled'}>
           <div>
             <span className="dayNum">{day}</span>
-            <span className="tasks">{tasksToday}</span>
+            <span className="tasks">
+              {tasksToday.length >= 2 ? firstTasks : tasksToday}
+            </span>
           </div>
         </li>
       </Link>
