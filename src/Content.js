@@ -8,35 +8,25 @@ import AddTaskLayout from './layouts/AddTaskLayout'
 
 function Content() {
   const { tasks } = useContext(AppContext)
-  const todaysDate = new Date().toISOString().slice(0, 10)
-
-  const importantTasks = tasks.filter(
-    (task) => task.important === true && task.active === true,
-  )
-
-  const completedTasks = tasks.filter((task) => !task.active)
-  const todaysTasks = tasks.filter(
-    (task) => task.date === todaysDate && task.active,
-  )
-  const allTasks = tasks.filter((task) => task.active)
-
   return (
     <Routes>
       <Route path="/" element={<HomeLayout title="Home" />} />
       <Route
         exact
         path="/today"
-        element={<TasksLayout title="Today" tasks={todaysTasks} />}
+        element={<TasksLayout title="Today" tasks={tasks} option="today" />}
       />
       <Route
         exact
         path="/important"
-        element={<TasksLayout title="Important" tasks={importantTasks} />}
+        element={
+          <TasksLayout title="Important" tasks={tasks} option="important" />
+        }
       />
       <Route
         exact
         path="/all"
-        element={<TasksLayout title="All" tasks={allTasks} />}
+        element={<TasksLayout title="All" tasks={tasks} option="all" />}
       />
       <Route
         exact
@@ -46,12 +36,19 @@ function Content() {
       <Route
         exact
         path="/completed"
-        element={<TasksLayout title="Completed" tasks={completedTasks} />}
+        element={
+          <TasksLayout title="Completed" tasks={tasks} option="completed" />
+        }
       />
       <Route
         exact
         path="/addTask"
         element={<AddTaskLayout title="Add task" />}
+      />
+      <Route
+        exact
+        path="/day"
+        element={<TasksLayout title="" tasks={tasks} option="day" />}
       />
     </Routes>
   )

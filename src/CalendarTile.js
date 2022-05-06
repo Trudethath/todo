@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { AppContext } from './AppProvider'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
 
 function CalendarTile(props) {
   const { date, disabled } = props
@@ -15,12 +16,16 @@ function CalendarTile(props) {
   })
 
   return (
-    <li className="calendarTile" disabled={disabled && 'disabled'}>
-      <div>
-        <span className="dayNum">{day}</span>
-        <span className="tasks">{tasksToday}</span>
-      </div>
-    </li>
+    <>
+      <Link to="/day" state={{ date }}>
+        <li className="calendarTile" disabled={disabled && 'disabled'}>
+          <div>
+            <span className="dayNum">{day}</span>
+            <span className="tasks">{tasksToday}</span>
+          </div>
+        </li>
+      </Link>
+    </>
   )
 }
 
