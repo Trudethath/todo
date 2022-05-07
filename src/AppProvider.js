@@ -98,6 +98,17 @@ const AppProvider = ({ children }) => {
     setTasks(tempTasks)
   }
 
+  const revertTask = (id) => {
+    let tempTasks = [...tasks]
+    tempTasks.forEach((task) => {
+      if (task.id === id) {
+        task.active = !task.active
+        task.date = ''
+      }
+    })
+    setTasks(tempTasks)
+  }
+
   const addTask = (title, description, date, important) => {
     const task = {
       id: tasks.length,
@@ -112,7 +123,14 @@ const AppProvider = ({ children }) => {
   }
   return (
     <AppContext.Provider
-      value={{ tasks, addTask, changeImportantStatus, removeTask, finishTask }}
+      value={{
+        tasks,
+        addTask,
+        changeImportantStatus,
+        removeTask,
+        finishTask,
+        revertTask,
+      }}
     >
       {children}
     </AppContext.Provider>

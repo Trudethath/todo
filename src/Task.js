@@ -2,13 +2,18 @@ import React, { useContext } from 'react'
 import { AppContext } from './AppProvider'
 import { IoMdRemove } from 'react-icons/io'
 import { MdDone } from 'react-icons/md'
+import { GrRevert } from 'react-icons/gr'
+
 import { AiOutlineStar, AiFillStar } from 'react-icons/ai'
 
 function Task(props) {
   const { id, title, active, important, description } = props.task
-  const { changeImportantStatus, removeTask, finishTask } = useContext(
-    AppContext,
-  )
+  const {
+    changeImportantStatus,
+    removeTask,
+    finishTask,
+    revertTask,
+  } = useContext(AppContext)
   return (
     <div className="task">
       <div className="taskHeader">
@@ -31,7 +36,13 @@ function Task(props) {
               className="taskButton"
               onClick={() => finishTask(id)}
             />
-          ) : null}
+          ) : (
+            <GrRevert
+              hovercolor="green"
+              className="taskButton"
+              onClick={() => revertTask(id)}
+            />
+          )}
 
           <IoMdRemove
             hovercolor="red"

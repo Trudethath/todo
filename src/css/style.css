@@ -503,14 +503,14 @@ body .content:before {
 .task .taskHeader .buttonsWrapper .taskButton[hovercolor='green']:hover {
   padding: 3px;
   background-color: #21c021;
-  color: white;
   cursor: pointer;
+  border: none;
 }
 
 .task .taskHeader .buttonsWrapper .taskButton[hovercolor='red']:hover {
   padding: 3px;
   background-color: #e40000;
-  color: white;
+  color: black;
   cursor: pointer;
   border: none;
 }

@@ -27,13 +27,13 @@
       & .taskButton[hovercolor='green']:hover {
         padding: 3px;
         background-color: $green;
-        color: white;
         cursor: pointer;
+        border: none;
       }
       & .taskButton[hovercolor='red']:hover {
         padding: 3px;
         background-color: $red;
-        color: white;
+        color: black;
         cursor: pointer;
         border: none;
       }
