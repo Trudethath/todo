@@ -8,7 +8,7 @@ function CalendarTile(props) {
   const { tasks } = useContext(AppContext)
 
   const filterTasks = tasks.filter((task) => {
-    return task.date === date
+    return task.date === date && task.active
   })
 
   const tasksToday = filterTasks.map((task) => {

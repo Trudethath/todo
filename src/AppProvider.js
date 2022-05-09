@@ -92,7 +92,10 @@ const AppProvider = ({ children }) => {
     tempTasks.forEach((task) => {
       if (task.id === id) {
         task.active = !task.active
-        task.date = today
+        task.finishDate = today
+          .toLocaleString()
+          .slice(0, 9)
+          .replaceAll('.', '-')
       }
     })
     setTasks(tempTasks)
@@ -103,7 +106,7 @@ const AppProvider = ({ children }) => {
     tempTasks.forEach((task) => {
       if (task.id === id) {
         task.active = !task.active
-        task.date = ''
+        task.finishDate = ''
       }
     })
     setTasks(tempTasks)

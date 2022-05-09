@@ -1,0 +1,33 @@
+.smallCalendar {
+  width: 250px;
+  & ol {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+
+    background-color: $white;
+    border: 3px solid $dark-blue;
+    & li {
+      grid-gap: 1px;
+    }
+    & .small-day-name {
+      border-left: 1px solid $dark-blue;
+      border-right: 1px solid $dark-blue;
+      background-color: $dark-blue;
+      text-align: center;
+      font-size: 15px;
+      color: $white;
+    }
+
+    & .smallTile {
+      background-color: $white-lighter;
+      padding: 5px;
+      height: 40px;
+      text-align: center;
+      &[notvisible] {
+        background-color: $white;
+        text-indent: -9999px;
+        white-space: nowrap;
+      }
+    }
+  }
+}

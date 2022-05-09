@@ -45,29 +45,34 @@ function Layout() {
 
   return (
     <>
-      <div className="header center">
-        <button className="changeButton" onClick={() => changeYear(-1)}>
-          <GoArrowSmallLeft className="buttonIcon" />
-          <span>{year - 1}</span>
-        </button>
-        <h1>{year}</h1>
-        <button className="changeButton" onClick={() => changeYear(1)}>
-          <span>{year + 1}</span>
-          <GoArrowSmallRight className="buttonIcon" />
-        </button>
-      </div>
+      <div className="header">
+        <div className="calendarDate">
+          <div className="yearChange">
+            <button onClick={() => changeYear(-1)}>
+              <GoArrowSmallLeft className="buttonIcon" />
+              <span>{year - 1}</span>
+            </button>
+            <h1>{year}</h1>
+            <button onClick={() => changeYear(1)}>
+              <span>{year + 1}</span>
+              <GoArrowSmallRight className="buttonIcon" />
+            </button>
+          </div>
 
-      <div className="fill">
-        <div className="calendarWrapper">
           <div className="monthChange">
             <button onClick={() => changeMonth(-1)}>
-              <GoArrowSmallLeft className="smallButtonIcon" />
+              {<GoArrowSmallLeft className="smallButtonIcon" />}
             </button>
             <span className="monthName">{currentMonthName}</span>
             <button onClick={() => changeMonth(1)}>
               <GoArrowSmallRight className="smallButtonIcon" />
             </button>
           </div>
+        </div>
+      </div>
+
+      <div className="fill">
+        <div className="calendarWrapper">
           <ol>
             <li className="day-name">Mon</li>
             <li className="day-name">Tue</li>

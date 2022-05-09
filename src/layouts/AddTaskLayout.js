@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react'
+import SmallCalendar from '../SmallCalendar'
 import { AppContext } from '../AppProvider'
 function Layout(props) {
   const { addTask } = useContext(AppContext)
@@ -22,15 +23,16 @@ function Layout(props) {
       case 'description':
         setDescription(value)
         break
-      case 'date':
-        setDate(value)
-        break
       case 'important':
         setImportant(checked)
         break
       default:
         return null
     }
+  }
+
+  const sendDate = (date) => {
+    setDate(date)
   }
 
   const submitForm = (e) => {
@@ -73,15 +75,6 @@ function Layout(props) {
               />
             </div>
           </div>
-
-          <input
-            type="date"
-            id="date"
-            value={date}
-            min={currentDate}
-            max={maxDate}
-            onChange={handleInputs}
-          />
           <input
             id="important"
             type="checkbox"
@@ -91,6 +84,8 @@ function Layout(props) {
 
           <input type="submit" onClick={submitForm} value="Add" />
         </form>
+
+        <SmallCalendar sendDate={sendDate} />
       </div>
     </>
   )

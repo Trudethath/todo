@@ -33,7 +33,9 @@ function Layout(props) {
       break
     case 'day':
       const { date } = location.state
-      const specificDayTasks = tasks.filter((task) => task.date === date)
+      const specificDayTasks = tasks.filter(
+        (task) => task.active && task.date === date,
+      )
       tasks = specificDayTasks.map((task) => <Task key={task.id} task={task} />)
       break
     default:

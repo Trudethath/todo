@@ -7,44 +7,44 @@
   h1 {
     align-self: flex-end;
   }
-
-  & button {
-    align-self: flex-end;
-    color: rgba(black, 0.7);
-    display: flex;
-    justify-content: center;
-    width: 75px;
-    height: 25px;
-    margin: 0 15px;
-    background: none;
-    border: none;
-    font-size: 15px;
-    overflow: hidden;
-    transition: all $transition-quick;
-    & span {
-      line-height: 25px;
-      margin: 0 2px;
-    }
-    & .buttonIcon {
-      line-height: 25px;
-      display: inline-block;
-      height: 30px;
-    }
-    &:hover {
-      font-size: 1.1em;
-      color: black;
-    }
-    &:active {
-      font-size: 1em;
-    }
-  }
 }
 
-.monthChange {
-  & button {
-    border: none;
-    & .smallButtonIcon {
-      font-size: 20px;
+.calendarDate {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  margin: 0 auto;
+  justify-content: flex-end;
+
+  & .yearChange {
+    margin: 0 auto;
+    display: flex;
+  }
+
+  & .monthChange {
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 23px;
+    margin: 0 auto;
+    text-align: center;
+
+    & button {
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    // left button
+    & button:first-child {
+      float: left;
+      margin-top: 5px;
+    }
+
+    // right button
+    & button:last-child {
+      float: right;
+      margin-top: 5px;
     }
   }
 }
@@ -52,28 +52,18 @@
 .tasksWrapper {
   padding: 10px;
   height: 80%;
-  display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    320px
-  ); //transition doesnt work on grid-template-columns
+  display: flex;
+  flex-wrap: wrap;
   grid-column-gap: 20px;
   grid-row-gap: 15px;
   overflow: auto;
   transition: all 0.5s;
 }
 
-.addTask {
-}
-
 .fill {
   width: 100%;
   height: 100%;
   background-color: $white;
-}
-
-.center {
-  justify-content: center;
 }
 
 .message {
