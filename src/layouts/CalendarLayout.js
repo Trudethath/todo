@@ -10,7 +10,7 @@ function Layout() {
   const firstDayOfTheMonth = new Date(year, month, 0).getDay()
 
   let currentMonthCount = 1 - firstDayOfTheMonth
-  const currentMonthNumber = date.toLocaleString().slice(2, 4)
+  const currentMonthNumber = date.toLocaleDateString().split('.')[1]
 
   // creates 2-dimensional array of whole month
   const daysMatrix = new Array(6).fill([]).map(() => {
