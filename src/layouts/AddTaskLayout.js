@@ -3,8 +3,6 @@ import SmallCalendar from '../SmallCalendar'
 import { AppContext } from '../AppProvider'
 function Layout(props) {
   const { addTask } = useContext(AppContext)
-  const currentDate = new Date().toISOString().slice(0, 10)
-  let maxDate = parseInt(currentDate.slice(0, 4)) + 1 + '-12-31'
 
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
@@ -37,12 +35,22 @@ function Layout(props) {
 
   const submitForm = (e) => {
     e.preventDefault()
-    addTask(title, description, date, isImportant)
-    // clearing inputs
-    setTitle('')
-    setDescription('')
-    setDate('')
-    setImportant(false)
+    // basic validation
+    if (
+      title.length > 2 &&
+      title.length < 10 &&
+      description.length < 20 &&
+      date !== ''
+    ) {
+      addTask(title, description, date, isImportant)
+      // clearing inputs
+      setTitle('')
+      setDescription('')
+      setDate('')
+      setImportant(false)
+    } else {
+      alert('invalid input')
+    }
   }
 
   return (
@@ -51,41 +59,55 @@ function Layout(props) {
         <h1>{props.title}</h1>
       </div>
       <div className="fill">
-        <form className="addTask">
-          <div className="textInputs">
+        <div className="addTask">
+          <form>
             <div>
-              <label htmlFor="title">Title</label>
+              <div className="textInputs">
+                <div>
+                  <label htmlFor="title">Title</label>
+                  <input
+                    type="text"
+                    id="title"
+                    value={title}
+                    placeholder="title"
+                    onChange={handleInputs}
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="description">Description</label>
+                  <input
+                    type="text"
+                    id="description"
+                    value={description}
+                    placeholder="description"
+                    onChange={handleInputs}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="important">Important</label>
+                  <input
+                    id="important"
+                    type="checkbox"
+                    checked={isImportant}
+                    onChange={handleInputs}
+                  />
+                </div>
+              </div>
+              <div>
+                <span>Date: {date === '' ? 'YYYY-M-D' : date}</span>
+              </div>
+
               <input
-                type="text"
-                id="title"
-                value={title}
-                placeholder="title"
-                onChange={handleInputs}
+                className="formSubmit"
+                type="submit"
+                onClick={submitForm}
+                value="Add"
               />
             </div>
-
-            <div>
-              <label htmlFor="description">Description</label>
-              <input
-                type="text"
-                id="description"
-                value={description}
-                placeholder="description"
-                onChange={handleInputs}
-              />
-            </div>
-          </div>
-          <input
-            id="important"
-            type="checkbox"
-            checked={isImportant}
-            onChange={handleInputs}
-          />
-
-          <input type="submit" onClick={submitForm} value="Add" />
-        </form>
-
-        <SmallCalendar sendDate={sendDate} />
+          </form>
+          <SmallCalendar sendDate={sendDate} />
+        </div>
       </div>
     </>
   )

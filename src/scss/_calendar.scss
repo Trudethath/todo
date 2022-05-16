@@ -23,6 +23,7 @@
       padding: 6px;
       height: 80px;
       min-width: 80px;
+      transition: $transition-quick;
       & .dayNum {
         background: $dark-blue;
         display: block;
@@ -40,7 +41,11 @@
         margin-top: 5px;
       }
       &[disabled] {
-        opacity: 0.9;
+        background-color: $white-darker;
+      }
+
+      &:hover {
+        background-color: $white-lighter;
       }
     }
   }

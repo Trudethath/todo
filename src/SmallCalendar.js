@@ -3,13 +3,22 @@ import SmallCalendarTile from './SmallCalendarTile'
 
 function SmallCalendar(props) {
   const [date, setDate] = useState(new Date())
+  const YMDdate =
+    new Date().toLocaleDateString().split('.')[2] +
+    '-' +
+    new Date().toLocaleDateString().split('.')[1] +
+    '-' +
+    new Date().toLocaleDateString().split('.')[0]
+  const [activeTile, setActiveTile] = useState(YMDdate)
+
   const year = date.getFullYear()
   const month = date.getMonth()
+  const monthName = date.toLocaleDateString('en-US', { month: 'short' })
 
   const firstDayOfTheMonth = new Date(year, month, 0).getDay()
 
   let currentMonthCount = 1 - firstDayOfTheMonth
-  const currentMonthNumber = date.toLocaleString().slice(2, 4)
+  const currentMonthNumber = date.toLocaleString().split('.')[1]
 
   const daysMatrix = new Array(6).fill([]).map(() => {
     return new Array(7).fill(null).map(() => {
@@ -18,40 +27,41 @@ function SmallCalendar(props) {
     })
   })
 
+  const setActive = (id) => {
+    setActiveTile(id)
+  }
+
   const SmallCalendar = daysMatrix.map((dates) =>
     dates.map((date) => {
       const monthOfDate = date.slice(5, 7)
-
       return (
         <SmallCalendarTile
           notvisible={monthOfDate !== currentMonthNumber}
+          chosenTile={activeTile && true}
+          activeTileId={activeTile}
           key={date}
+          id={date}
           date={date}
+          setActive={setActive}
           sendDate={props.sendDate}
         />
       )
     }),
   )
 
-  const changeYear = (value) => {
-    console.log(date)
-    setDate(new Date(year + value, month))
-  }
-
   const changeMonth = (value) => {
+    console.log(value)
     setDate(new Date(year, month + value))
   }
 
   return (
     <>
-      <div>
-        <button onClick={() => changeYear(-1)}> -1y </button>
-        <button onClick={() => changeYear(1)}> +1y </button>
-
-        <button onClick={() => changeMonth(-1)}> -1m </button>
-        <button onClick={() => changeMonth(1)}> +1m </button>
-      </div>
       <div className="smallCalendar">
+        <span>
+          <button onClick={() => changeMonth(-1)}> -1m </button>
+          {monthName} {year}
+          <button onClick={() => changeMonth(1)}> +1m </button>
+        </span>
         <ol>
           <li className="small-day-name">Mo</li>
           <li className="small-day-name">Tu</li>
